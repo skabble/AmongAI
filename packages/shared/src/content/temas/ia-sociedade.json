@@ -1,0 +1,645 @@
+{
+  "id": "ia-sociedade",
+  "items": [
+    {
+      "pt": {
+        "question": "A IA de triagem de um hospital mandou para casa um doente grave. Quem deve responder?",
+        "options": [
+          "O hospital que a usa",
+          "O médico que confirmou a triagem",
+          "A empresa que fez a IA",
+          "Todos, em partes iguais"
+        ]
+      },
+      "en": {
+        "question": "A hospital triage AI sent a seriously ill patient home. Who should be held responsible?",
+        "options": [
+          "The hospital that uses it",
+          "The doctor who confirmed the triage",
+          "The company that built the AI",
+          "All of them, equally"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Metade da turma usou IA num trabalho de casa. O que deve a escola fazer?",
+        "options": [
+          "Anular os trabalhos",
+          "Aceitar, mas avaliar oralmente",
+          "Ensinar a usar IA e aceitar",
+          "Passar a fazer os trabalhos só na aula"
+        ]
+      },
+      "en": {
+        "question": "Half the class used AI for a homework assignment. What should the school do?",
+        "options": [
+          "Void the assignments",
+          "Accept them, but test orally",
+          "Teach how to use AI and accept it",
+          "Only do assignments in class from now on"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Um partido quer usar vídeos gerados por IA na campanha eleitoral. O que fazer?",
+        "options": [
+          "Proibir",
+          "Permitir com aviso visível",
+          "Permitir só em sátira assumida",
+          "Deixar os eleitores julgar"
+        ]
+      },
+      "en": {
+        "question": "A political party wants to use AI-generated videos in its election campaign. What should happen?",
+        "options": [
+          "Ban it",
+          "Allow it with a visible label",
+          "Allow it only as obvious satire",
+          "Let the voters judge"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma empresa quer substituir 200 pessoas do apoio ao cliente por um chatbot. Deve poder?",
+        "options": [
+          "Sim, é uma decisão de gestão",
+          "Só se requalificar as pessoas",
+          "Só se o cliente puder pedir um humano",
+          "Sim, mas paga um imposto por posto"
+        ]
+      },
+      "en": {
+        "question": "A company wants to replace 200 customer support staff with a chatbot. Should it be allowed?",
+        "options": [
+          "Yes, it's a business decision",
+          "Only if it retrains the staff",
+          "Only if customers can ask for a human",
+          "Yes, but it pays a tax per job cut"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA imita na perfeição o estilo de um artista vivo. A que tem ele direito?",
+        "options": [
+          "A nada, o estilo não é propriedade",
+          "A uma parte dos lucros",
+          "A tirar as suas obras do treino",
+          "A ser creditado quando pedem pelo nome"
+        ]
+      },
+      "en": {
+        "question": "An AI perfectly imitates the style of a living artist. What are they entitled to?",
+        "options": [
+          "Nothing, style isn't property",
+          "A share of the profits",
+          "To have their work removed from training",
+          "Credit when prompts use their name"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Os pais devem poder ler as conversas dos filhos com um chatbot?",
+        "options": [
+          "Sempre",
+          "Só até aos 13 anos",
+          "Só um resumo dos temas",
+          "Nunca, é privado"
+        ]
+      },
+      "en": {
+        "question": "Should parents be able to read their children's conversations with a chatbot?",
+        "options": [
+          "Always",
+          "Only until age 13",
+          "Only a summary of the topics",
+          "Never, it's private"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Um carro autónomo vai inevitavelmente bater. Quem deve proteger primeiro?",
+        "options": [
+          "Os passageiros",
+          "Os peões",
+          "Quem tiver mais hipóteses de sobreviver",
+          "Ninguém: trava a direito e pronto"
+        ]
+      },
+      "en": {
+        "question": "A self-driving car is going to crash no matter what. Who should it protect first?",
+        "options": [
+          "The passengers",
+          "The pedestrians",
+          "Whoever is most likely to survive",
+          "No one: just brake in a straight line"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA diagnostica melhor do que os médicos, mas não sabe explicar porquê. Usamos?",
+        "options": [
+          "Usar já, salva vidas",
+          "Usar com um médico a confirmar",
+          "Usar só onde faltam médicos",
+          "Não usar até saber explicar"
+        ]
+      },
+      "en": {
+        "question": "An AI diagnoses better than doctors but can't explain why. Do we use it?",
+        "options": [
+          "Use it now, it saves lives",
+          "Use it with a doctor confirming",
+          "Use it only where doctors are scarce",
+          "Don't use it until it can explain"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma cidade quer reconhecimento facial nas câmaras de rua para apanhar criminosos.",
+        "options": [
+          "Sim, em todo o lado",
+          "Só em estações e aeroportos",
+          "Só com autorização de um juiz",
+          "Nunca"
+        ]
+      },
+      "en": {
+        "question": "A city wants facial recognition on street cameras to catch criminals.",
+        "options": [
+          "Yes, everywhere",
+          "Only in stations and airports",
+          "Only with a judge’s warrant",
+          "Never"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Um adolescente passa horas por dia a falar com um chatbot de companhia. O que se faz?",
+        "options": [
+          "Nada, a escolha é dele",
+          "A app deve limitar o tempo",
+          "Proibir estas apps a menores",
+          "A app deve avisar os pais"
+        ]
+      },
+      "en": {
+        "question": "A teenager spends hours a day talking to a companion chatbot. What should be done?",
+        "options": [
+          "Nothing, it's their choice",
+          "The app should limit the time",
+          "Ban these apps for minors",
+          "The app should alert the parents"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Um detetor (que se engana muito) diz que o trabalho de um aluno foi escrito por IA. E agora?",
+        "options": [
+          "Chumbar o trabalho",
+          "Ignorar o detetor",
+          "Pedir ao aluno que o defenda oralmente",
+          "Pedir o histórico de versões do texto"
+        ]
+      },
+      "en": {
+        "question": "A detector (often wrong) says a student's essay was written by AI. Now what?",
+        "options": [
+          "Fail the essay",
+          "Ignore the detector",
+          "Ask the student to defend it orally",
+          "Ask for the document's version history"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA de recrutamento escolhe bem, mas favorece candidatos de certas universidades.",
+        "options": [
+          "Deixar de a usar",
+          "Usá-la e corrigir à mão",
+          "Usá-la só na primeira triagem",
+          "Retreiná-la e voltar a testar"
+        ]
+      },
+      "en": {
+        "question": "A hiring AI picks well, but it favours candidates from certain universities.",
+        "options": [
+          "Stop using it",
+          "Use it and correct by hand",
+          "Use it only for the first screening",
+          "Retrain it and test again"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Quem deve definir as regras da IA num país?",
+        "options": [
+          "O governo",
+          "Um regulador independente",
+          "As próprias empresas",
+          "Os cidadãos, em referendo"
+        ]
+      },
+      "en": {
+        "question": "Who should set a country's rules for AI?",
+        "options": [
+          "The government",
+          "An independent regulator",
+          "The companies themselves",
+          "The citizens, by referendum"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "As imagens geradas por IA devem ter uma marca obrigatória?",
+        "options": [
+          "Sim, uma marca visível",
+          "Sim, uma marca invisível nos dados",
+          "Só em notícias e publicidade",
+          "Não, é impossível de garantir"
+        ]
+      },
+      "en": {
+        "question": "Should AI-generated images be required to carry a mark?",
+        "options": [
+          "Yes, a visible mark",
+          "Yes, an invisible mark in the data",
+          "Only in news and advertising",
+          "No, it's impossible to enforce"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "O chatbot de um banco deu uma informação errada e o cliente perdeu dinheiro. Quem paga?",
+        "options": [
+          "O banco",
+          "A empresa que fez o chatbot",
+          "O cliente, devia ter confirmado",
+          "Divide-se entre o banco e o cliente"
+        ]
+      },
+      "en": {
+        "question": "A bank's chatbot gave wrong information and a customer lost money. Who pays?",
+        "options": [
+          "The bank",
+          "The company that built the chatbot",
+          "The customer, they should have checked",
+          "Split between the bank and the customer"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA escreve notícias para um jornal. Como devem ser assinadas?",
+        "options": [
+          "Assinadas como escritas por IA",
+          "Pelo jornalista que as revê",
+          "Basta um aviso no fim do texto",
+          "Não é preciso dizer nada"
+        ]
+      },
+      "en": {
+        "question": "An AI writes news articles for a newspaper. How should they be credited?",
+        "options": [
+          "Credited as written by AI",
+          "To the journalist who reviews them",
+          "A note at the end is enough",
+          "No need to say anything"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma seguradora quer usar IA para definir o preço do seguro de cada pessoa.",
+        "options": [
+          "Sim, é mais justo para cada um",
+          "Só com dados que a pessoa aceita dar",
+          "Só se explicar cada preço",
+          "Não, preço igual para todos"
+        ]
+      },
+      "en": {
+        "question": "An insurer wants to use AI to set each person's insurance price.",
+        "options": [
+          "Yes, it is fairer to each person",
+          "Only with data the person agrees to give",
+          "Only if it explains every price",
+          "No, same price for everyone"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Pode-se usar IA para recriar a voz de um familiar que morreu?",
+        "options": [
+          "Sim, é uma escolha da família",
+          "Só se ele o tiver autorizado em vida",
+          "Só para uso privado",
+          "Não, prejudica o luto"
+        ]
+      },
+      "en": {
+        "question": "Should AI be used to recreate the voice of a relative who has died?",
+        "options": [
+          "Yes, it's the family's choice",
+          "Only if they agreed to it while alive",
+          "Only for private use",
+          "No, it harms grieving"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Um tribunal quer usar IA para ajudar a decidir as penas.",
+        "options": [
+          "Sim, é mais consistente",
+          "Só como sugestão, o juiz decide",
+          "Só em casos simples",
+          "Nunca na justiça"
+        ]
+      },
+      "en": {
+        "question": "A court wants to use AI to help decide sentences.",
+        "options": [
+          "Yes, it's more consistent",
+          "Only as advice, the judge decides",
+          "Only in simple cases",
+          "Never in the justice system"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA escreveu a maior parte de um livro premiado. Quem é o autor?",
+        "options": [
+          "Quem escreveu os prompts",
+          "A empresa que fez a IA",
+          "Ninguém, fica sem autor",
+          "A pessoa, com menção à IA"
+        ]
+      },
+      "en": {
+        "question": "An AI wrote most of an award-winning book. Who is the author?",
+        "options": [
+          "Whoever wrote the prompts",
+          "The company that made the AI",
+          "No one, it has no author",
+          "The person, crediting the AI"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma empresa usa IA para medir a produtividade de quem está em teletrabalho.",
+        "options": [
+          "Pode, o tempo é pago",
+          "Só se os funcionários souberem",
+          "Só os resultados, nunca o ecrã",
+          "Não, é invasão de privacidade"
+        ]
+      },
+      "en": {
+        "question": "A company uses AI to measure the productivity of remote workers.",
+        "options": [
+          "It can, it's paid time",
+          "Only if the employees know",
+          "Only results, never the screen",
+          "No, it's an invasion of privacy"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA consegue prever que alunos vão desistir da escola. O que se faz com isso?",
+        "options": [
+          "Dar apoio extra a esses alunos",
+          "Avisar os pais",
+          "Usar só em números gerais",
+          "Não usar, rotula os alunos"
+        ]
+      },
+      "en": {
+        "question": "An AI can predict which students will drop out of school. What do we do with that?",
+        "options": [
+          "Give those students extra support",
+          "Tell the parents",
+          "Only use overall numbers",
+          "Don't use it, it labels students"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Os estudantes devem poder usar IA nos exames?",
+        "options": [
+          "Nunca",
+          "Sim, como uma calculadora",
+          "Só em exames com consulta",
+          "Sim, mas têm de declarar o uso"
+        ]
+      },
+      "en": {
+        "question": "Should students be allowed to use AI in exams?",
+        "options": [
+          "Never",
+          "Yes, like a calculator",
+          "Only in open-book exams",
+          "Yes, but they must declare it"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA faz músicas no estilo de uma banda famosa e enche as plataformas de streaming.",
+        "options": [
+          "Deixar, quem gosta ouve",
+          "Marcar como música de IA",
+          "Pagar uma parte à banda",
+          "Retirar das plataformas"
+        ]
+      },
+      "en": {
+        "question": "An AI makes songs in the style of a famous band and floods the streaming platforms.",
+        "options": [
+          "Leave it, whoever likes it listens",
+          "Label it as AI music",
+          "Pay the band a share",
+          "Remove it from the platforms"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA de apoio psicológico está disponível 24 horas e é grátis. Recomendamos?",
+        "options": [
+          "Sim, ajuda quem não tem acesso",
+          "Só enquanto espera por um terapeuta",
+          "Só para casos ligeiros",
+          "Não, saúde mental exige humanos"
+        ]
+      },
+      "en": {
+        "question": "A mental health support AI is available 24/7 and free. Do we recommend it?",
+        "options": [
+          "Yes, it helps those without access",
+          "Only while waiting for a therapist",
+          "Only for mild cases",
+          "No, mental health needs humans"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "E os empregos que a IA eliminar? O que deve o Estado fazer?",
+        "options": [
+          "Nada, surgem outros",
+          "Pagar formação para mudar de área",
+          "Criar um rendimento básico",
+          "Taxar quem mais automatiza"
+        ]
+      },
+      "en": {
+        "question": "What about the jobs AI eliminates? What should the state do?",
+        "options": [
+          "Nothing, new ones will appear",
+          "Pay for retraining",
+          "Create a basic income",
+          "Tax those who automate the most"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Um aluno usa IA para traduzir os trabalhos de uma disciplina de línguas.",
+        "options": [
+          "É batota",
+          "É uma ferramenta como outra qualquer",
+          "Aceita-se só nos rascunhos",
+          "Aceita-se se ele souber explicar"
+        ]
+      },
+      "en": {
+        "question": "A student uses AI to translate their assignments in a language class.",
+        "options": [
+          "It's cheating",
+          "It's a tool like any other",
+          "Acceptable only in drafts",
+          "Acceptable if they can explain it"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Deve haver uma idade mínima para usar chatbots?",
+        "options": [
+          "Não, qualquer idade",
+          "A partir dos 13 anos",
+          "A partir dos 16 anos",
+          "Só a partir dos 18 anos"
+        ]
+      },
+      "en": {
+        "question": "Should there be a minimum age to use chatbots?",
+        "options": [
+          "No, any age",
+          "From age 13",
+          "From age 16",
+          "Only from age 18"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA da polícia indica os bairros onde vai haver mais crimes. O que se faz?",
+        "options": [
+          "Patrulhar mais esses bairros",
+          "Usar só com revisão humana",
+          "Investir lá em apoio social",
+          "Não usar, reforça preconceitos"
+        ]
+      },
+      "en": {
+        "question": "A police AI flags the neighbourhoods where more crime will happen. What do we do?",
+        "options": [
+          "Patrol those areas more",
+          "Use it only with human review",
+          "Invest in social support there",
+          "Don't use it, it reinforces bias"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma IA já faz o trabalho de um estagiário. As empresas devem continuar a contratar estagiários?",
+        "options": [
+          "Não, deixa de fazer sentido",
+          "Sim, é preciso formar quem vem",
+          "Sim, se o Estado pagar uma parte",
+          "Sim, mas a ensinar a usar IA"
+        ]
+      },
+      "en": {
+        "question": "An AI can already do an intern’s job. Should companies keep hiring interns?",
+        "options": [
+          "No, it no longer makes sense",
+          "Yes, we must train the next generation",
+          "Yes, if the state pays part of it",
+          "Yes, but teaching them to use AI"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Um robô de entregas autónomo partiu um carro estacionado. Quem paga?",
+        "options": [
+          "A empresa de entregas",
+          "O fabricante do robô",
+          "Um seguro obrigatório do robô",
+          "A câmara que autorizou os robôs"
+        ]
+      },
+      "en": {
+        "question": "An autonomous delivery robot damaged a parked car. Who pays?",
+        "options": [
+          "The delivery company",
+          "The robot manufacturer",
+          "A mandatory robot insurance",
+          "The city that allowed the robots"
+        ]
+      }
+    },
+    {
+      "pt": {
+        "question": "Uma rede social usa IA para escolher o que vês. Deve haver alternativa?",
+        "options": [
+          "Não, é o produto deles",
+          "Sim, uma opção por ordem de data",
+          "Sim, e deve ser a opção por omissão",
+          "Sim, e explicar porque vês cada coisa"
+        ]
+      },
+      "en": {
+        "question": "A social network uses AI to choose what you see. Should there be an alternative?",
+        "options": [
+          "No, it's their product",
+          "Yes, a chronological option",
+          "Yes, and it should be the default",
+          "Yes, and explain why you see each post"
+        ]
+      }
+    }
+  ]
+}
