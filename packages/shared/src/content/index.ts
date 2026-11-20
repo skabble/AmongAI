@@ -10,7 +10,7 @@ const localized = z.object({
   options: z.array(z.string().min(1).max(60)).length(OPTION_COUNT),
 });
 
-/** Cada dilema tem 4 opções, todas defensáveis; em cada ronda 2 delas são sorteadas como objetivo dos Desalinhados. */
+/** Cada dilema tem 4 opções, todas defensáveis; em cada ronda 2 delas são sorteadas como objetivo dos Impostores. */
 const item = z.object({ pt: localized, en: localized });
 
 export const themeSchema = z.object({

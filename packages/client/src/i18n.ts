@@ -1,4 +1,4 @@
-import type { Lang } from '@desalinhados/shared';
+import type { Lang } from '@amongai/shared';
 import { en, pt, type Dict } from './messages';
 import { LANG_KEY, getState, send, setState, useStore } from './store';
 

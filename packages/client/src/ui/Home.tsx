@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useT } from '../i18n';
 import { createRoom, joinRoom, useStore } from '../store';
 
-const NAME_KEY = 'desalinhados:nome';
+const NAME_KEY = 'amongai:nome';
 
 function initialName(): string {
   try {

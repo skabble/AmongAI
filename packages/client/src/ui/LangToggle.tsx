@@ -1,4 +1,4 @@
-import { LANGS } from '@desalinhados/shared';
+import { LANGS } from '@amongai/shared';
 import { setLang, useT } from '../i18n';
 import { useStore } from '../store';
 

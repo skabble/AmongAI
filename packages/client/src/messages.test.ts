@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { ROOMS, SETTINGS_LIMITS, TASKS, THEMES, type EventCode, type SabotageKind } from '@desalinhados/shared';
+import { ROOMS, SETTINGS_LIMITS, TASKS, THEMES, type EventCode, type SabotageKind } from '@amongai/shared';
 import { en, pt } from './messages';
 
 const placeholders = (text: string) => [...text.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();

@@ -1,7 +1,7 @@
-# Desalinhados
+# AmongAI
 
 Jogo de dedução social no browser, até 15 jogadores, pensado para pôr grupos a discutir temas de AI.
-Um laboratório está prestes a lançar um modelo: a Equipa conclui tarefas de validação, os Desalinhados sabotam.
+Um laboratório está prestes a lançar um modelo: a Equipa conclui tarefas de validação, os Impostores sabotam.
 A voz fica fora do jogo (Teams, Discord, etc.).
 
 ## Correr
@@ -37,28 +37,28 @@ npm run bots       # 15 clientes simulados contra um servidor em execução
 ## Temas
 
 O anfitrião escolhe o tema no lobby. Em cada ronda há um dilema sobre IA, igual para todos, com 4 opções
-defensáveis. Os Desalinhados têm um objetivo secreto: querem que o laboratório escolha uma de 2 opções sorteadas.
-Numa das consolas de tarefas está escondida uma evidência que revela uma dessas opções a quem a encontrar; os Desalinhados veem onde está e tentam destruí-la antes.
+defensáveis. Os Impostores têm um objetivo secreto: querem que o laboratório escolha uma de 2 opções sorteadas.
+Numa das consolas de tarefas está escondida uma evidência que revela uma dessas opções a quem a encontrar; os Impostores veem onde está e tentam destruí-la antes.
 
 A reunião tem dois passos:
 
 1. Discussão: falam livremente na chamada e cada jogador vivo escolhe uma opção, podendo mudar até o anfitrião
    abrir a votação. As escolhas são públicas e aparecem ao vivo.
-2. Votação: revela-se a decisão do laboratório e o objetivo dos Desalinhados (quem o escolheu fica destacado) e
+2. Votação: revela-se a decisão do laboratório e o objetivo dos Impostores (quem o escolheu fica destacado) e
    vota-se a expulsão.
 
-Uma decisão desalinhada encurta o tempo até à próxima eliminação e conta para o limite de decisões desalinhadas
-(definição do lobby); ao chegar ao limite, os Desalinhados ganham. Uma decisão acertada dá mais tempo à Equipa.
+Uma decisão a favor dos Impostores encurta o tempo até à próxima eliminação e conta para o limite de decisões a favor dos Impostores
+(definição do lobby); ao chegar ao limite, os Impostores ganham. Uma decisão acertada dá mais tempo à Equipa.
 
 Para acrescentar um tema:
 
 1. Criar `packages/shared/src/content/temas/<id>.json` com `id` e pelo menos 6 `items`. Cada item tem `pt`/`en`,
-   cada um com `question` e 4 `options`, todas defensáveis (o objetivo dos Desalinhados é sorteado em cada jogo).
+   cada um com `question` e 4 `options`, todas defensáveis (o objetivo dos Impostores é sorteado em cada jogo).
 2. Importá-lo em `packages/shared/src/content/index.ts`.
 3. Acrescentar `{ id, name }` a `THEMES` em `packages/shared/src/constants.ts` e o nome do tema (`theme.<id>`) às traduções.
 
 As perguntas são validadas no arranque do servidor e em `npm test`. Só o servidor as importa, para que a resposta
-certa e o objetivo dos Desalinhados não cheguem ao browser de quem não os deve ver.
+certa e o objetivo dos Impostores não cheguem ao browser de quem não os deve ver.
 
 As tarefas (comuns, curtas e longas) estão em `packages/shared/src/tasks.ts` e os mini-jogos em
 `packages/client/src/ui/MiniGames.tsx`.

@@ -12,7 +12,7 @@ import {
   type SabotageKind,
   type TaskView,
   type View,
-} from '@desalinhados/shared';
+} from '@amongai/shared';
 import { useT, type T } from '../i18n';
 import { send, serverNow, setState, useStore } from '../store';
 import { useCountdown } from './common';
@@ -80,7 +80,7 @@ export function Hud() {
         activeGame: {
           kind: 'evidence',
           stationId: STATIONS[evidenceIndex]!.id,
-          // Só os Desalinhados chegam aqui: destroem a evidência escondida na consola.
+          // Só os Impostores chegam aqui: destroem a evidência escondida na consola.
           game: HIDE_GAMES[evidenceIndex % HIDE_GAMES.length]!,
           title: 'hud.destroyTitle',
         },

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { CHAT_MAX, type PublicPlayer } from '@desalinhados/shared';
+import { CHAT_MAX, type PublicPlayer } from '@amongai/shared';
 import { useT } from '../i18n';
 import { send, useStore } from '../store';
 import { Bot, Dot, PlayerName, useCountdown } from './common';
@@ -20,7 +20,7 @@ function Chip({ player, glow, mine }: { player: PublicPlayer | undefined; glow?:
 /**
  * As opções da pergunta, em cartões que são ao mesmo tempo os botões de escolha e o gráfico.
  * Passo 1: cada vivo clica para escolher (e pode mudar); vê-se ao vivo quem escolheu o quê.
- * Passo 2: o resultado da decisão, com quem escolheu a opção dos Desalinhados a brilhar a vermelho.
+ * Passo 2: o resultado da decisão, com quem escolheu a opção dos Impostores a brilhar a vermelho.
  */
 function Options() {
   const view = useStore((s) => s.view)!;

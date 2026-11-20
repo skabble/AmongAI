@@ -1,5 +1,5 @@
 import { Room, type Client } from 'colyseus';
-import { MAX_PLAYERS, MIN_PLAYERS, TICK_RATE } from '@desalinhados/shared';
+import { MAX_PLAYERS, MIN_PLAYERS, TICK_RATE } from '@amongai/shared';
 import { Game } from '../game/Game';
 
 const LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; // sem I e O, para evitar confusões

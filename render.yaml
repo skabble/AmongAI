@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: desalinhados
+    name: amongai
     runtime: node
     plan: free
     region: frankfurt

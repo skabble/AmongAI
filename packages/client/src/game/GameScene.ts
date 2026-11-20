@@ -19,7 +19,7 @@ import {
   type Snap,
   type TaskView,
   type View,
-} from '@desalinhados/shared';
+} from '@amongai/shared';
 import { translate } from '../i18n';
 import { getState, live, send, setState, type Nearby } from '../store';
 import {
@@ -244,7 +244,7 @@ export class GameScene extends Phaser.Scene {
         this.others.set(id, avatar);
       }
       if (info) this.setColor(avatar, info.color);
-      // Os Desalinhados veem os aliados com o nome a vermelho.
+      // Os Impostores veem os aliados com o nome a vermelho.
       avatar.label.setColor(info?.role === 'impostor' ? '#ff8a95' : '#ffffff');
       const last = avatar.samples[avatar.samples.length - 1];
       // Reaparecer ou saltar (conduta, reunião): começa de novo, sem deslizar pelo mapa.
@@ -399,7 +399,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // Só os Desalinhados sabem em que consolas há evidências escondidas (para as destruírem).
+    // Só os Impostores sabem em que consolas há evidências escondidas (para as destruírem).
     for (const id of view.evidence) {
       const s = STATIONS.find((x) => x.id === id);
       if (!s) continue;
@@ -480,7 +480,7 @@ export class GameScene extends Phaser.Scene {
           nearby.taskId = task.id;
         }
       }
-      // Os Desalinhados vivos destroem as evidências escondidas nas consolas (a Equipa encontra-as nas tarefas).
+      // Os Impostores vivos destroem as evidências escondidas nas consolas (a Equipa encontra-as nas tarefas).
       if (!you.inVent && you.alive && you.role === 'impostor') {
         nearby.evidenceId = view.evidence.find((id) => {
           const s = STATIONS.find((x) => x.id === id);

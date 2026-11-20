@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { MiniGame } from '@desalinhados/shared';
+import type { MiniGame } from '@amongai/shared';
 import { useT } from '../i18n';
 
 interface GameProps {
@@ -274,7 +274,7 @@ function Transfer({ onDone }: GameProps) {
   );
 }
 
-/** Investigar uma evidência: demora uns segundos, durante os quais o Desalinhado fica exposto. */
+/** Investigar uma evidência: demora uns segundos, durante os quais o Impostor fica exposto. */
 function Scan({ onDone }: GameProps) {
   const [progress, setProgress] = useState(0);
   const t = useT();

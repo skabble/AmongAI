@@ -2,7 +2,7 @@
 // Uso: npm run bots            (servidor em http://localhost:2567)
 //      BOTS=15 SECONDS=20 SERVER=http://localhost:2567 npm run bots
 import { Client, type Room } from '@colyseus/sdk';
-import { MIN_PLAYERS, TICK_RATE, visionRadius, type Snap, type View } from '@desalinhados/shared';
+import { MIN_PLAYERS, TICK_RATE, visionRadius, type Snap, type View } from '@amongai/shared';
 
 const SERVER = process.env.SERVER ?? 'http://localhost:2567';
 const COUNT = Math.max(MIN_PLAYERS, Number(process.env.BOTS) || 15);
@@ -33,16 +33,16 @@ function watch(bot: Bot): void {
       const leaked = view.players.filter((p) => p.role !== undefined);
       if (role === 'crew' && leaked.length > 0) problem(`${bot.name} (Equipa) recebeu papéis de outros jogadores`);
       if (role === 'crew' && (view.you.killReadyAt !== 0 || view.you.sabotageReadyAt !== 0)) {
-        problem(`${bot.name} (Equipa) recebeu cooldowns dos Desalinhados`);
+        problem(`${bot.name} (Equipa) recebeu cooldowns dos Impostores`);
       }
       if (role === 'impostor' && leaked.some((p) => p.role !== 'impostor')) {
-        problem(`${bot.name} (Desalinhado) recebeu papéis da Equipa`);
+        problem(`${bot.name} (Impostor) recebeu papéis da Equipa`);
       }
       const stage = view.meeting?.stage;
       if (view.meeting?.ballots && stage === 'speaking') problem('votos revelados antes da votação');
       if (view.meeting?.decision && stage === 'speaking') problem('decisão revelada antes de todos falarem');
-      if (role === 'crew' && view.round?.goal) problem(`${bot.name} (Equipa) recebeu o objetivo dos Desalinhados`);
-      if (role === 'impostor' && view.round && view.round.hints.length > 0) problem(`${bot.name} (Desalinhado) recebeu pistas da Equipa`);
+      if (role === 'crew' && view.round?.goal) problem(`${bot.name} (Equipa) recebeu o objetivo dos Impostores`);
+      if (role === 'impostor' && view.round && view.round.hints.length > 0) problem(`${bot.name} (Impostor) recebeu pistas da Equipa`);
     }
   });
   bot.room.onMessage('snap', (snap: Snap) => {
@@ -95,22 +95,22 @@ async function main(): Promise<void> {
   await waitFor('início do jogo', () => bots.every((b) => b.view?.phase === 'playing'));
   const impostors = bots.filter((b) => b.view!.you.role === 'impostor');
   const crew = bots.filter((b) => b.view!.you.role === 'crew');
-  console.log(`Jogo iniciado: ${impostors.length} Desalinhados, ${crew.length} na Equipa`);
+  console.log(`Jogo iniciado: ${impostors.length} Impostores, ${crew.length} na Equipa`);
 
-  // Pergunta da ronda: igual para todos; só os Desalinhados têm o objetivo, e é o mesmo para todos eles.
+  // Pergunta da ronda: igual para todos; só os Impostores têm o objetivo, e é o mesmo para todos eles.
   const questions = new Set(bots.map((b) => b.view!.round?.question));
   if (questions.size !== 1 || !host.view!.round) problem('os jogadores não receberam todos a mesma pergunta');
   const goals = new Set(impostors.map((b) => JSON.stringify(b.view!.round?.goal)));
-  if (goals.size !== 1 || !impostors[0]!.view!.round?.goal?.length) problem('os Desalinhados não receberam o mesmo objetivo');
+  if (goals.size !== 1 || !impostors[0]!.view!.round?.goal?.length) problem('os Impostores não receberam o mesmo objetivo');
   const question = host.view!.round?.question;
   console.log(`Pergunta: ${question}`);
   console.log(`Opções: ${host.view!.round?.options.join(' | ')}`);
-  console.log(`Objetivo dos Desalinhados: ${impostors[0]!.view!.round?.goal?.map((i) => host.view!.round!.options[i]).join(', ')}`);
-  // Evidências escondidas nas consolas: só os Desalinhados sabem onde; todos sabem quantas.
+  console.log(`Objetivo dos Impostores: ${impostors[0]!.view!.round?.goal?.map((i) => host.view!.round!.options[i]).join(', ')}`);
+  // Evidências escondidas nas consolas: só os Impostores sabem onde; todos sabem quantas.
   const hidden = impostors[0]!.view!.evidence;
   console.log(`Evidências escondidas nas tarefas: ${host.view!.evidenceLeft}`);
   if (crew.some((b) => b.view!.evidence.length > 0)) problem('a Equipa recebeu a localização das evidências');
-  if (hidden.length !== host.view!.evidenceLeft) problem('os Desalinhados não veem todas as evidências');
+  if (hidden.length !== host.view!.evidenceLeft) problem('os Impostores não veem todas as evidências');
   // Ninguém está ao pé de uma consola no início, por isso estes pedidos têm de ser ignorados.
   if (hidden.length > 0) {
     for (const bot of impostors) bot.room.send('evidence', { stationId: hidden[0] });
@@ -153,9 +153,9 @@ async function main(): Promise<void> {
     await waitFor('votação', () => host.view?.meeting?.stage !== 'speaking');
     const decision = host.view!.meeting?.decision;
     if (!decision || Object.keys(host.view!.meeting!.picks).length !== COUNT) problem('a decisão não mostra as escolhas de todos');
-    console.log(`Decisão: ${decision?.chosen === null ? 'empate' : host.view!.round?.options[decision!.chosen]}; desalinhadas: ${host.view!.badDecisions?.count}`);
+    console.log(`Decisão: ${decision?.chosen === null ? 'empate' : host.view!.round?.options[decision!.chosen]}; a favor dos Impostores: ${host.view!.badDecisions?.count}`);
     if (host.view?.meeting?.stage !== 'voting') {
-      console.log('Limite de decisões desalinhadas atingido');
+      console.log('Limite de decisões a favor dos Impostores atingido');
       await waitFor('fim do jogo', () => host.view?.phase === 'ended', 12_000);
     }
     if (host.view?.phase === 'meeting') {

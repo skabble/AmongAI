@@ -19,7 +19,7 @@ export function TaskModal() {
   // Uma reparação fecha-se sozinha quando a sabotagem fica resolvida (por nós ou por outro jogador).
   useEffect(() => {
     if (active?.kind === 'fix' && !sabotage) close();
-    // O mesmo quando outro Desalinhado destrói a evidência que estávamos a destruir.
+    // O mesmo quando outro Impostor destrói a evidência que estávamos a destruir.
     if (active?.kind === 'evidence' && !finished && !evidence?.includes(active.stationId)) close();
   }, [active, sabotage, evidence, finished, close]);
 

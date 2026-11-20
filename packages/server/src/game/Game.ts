@@ -50,8 +50,8 @@ import {
   type Snap,
   type View,
   type WinReason,
-} from '@desalinhados/shared';
-import { GOAL_COUNT, THEME_CONTENT, type QuestionItem } from '@desalinhados/shared/content';
+} from '@amongai/shared';
+import { GOAL_COUNT, THEME_CONTENT, type QuestionItem } from '@amongai/shared/content';
 
 export type Send = (playerId: string, type: string, payload: unknown) => void;
 
@@ -107,7 +107,7 @@ interface Meeting {
   picks: Record<string, number>;
   /** Preenchida quando a fase de decisão fecha. */
   decision?: DecisionView;
-  /** A decisão atingiu o limite de decisões desalinhadas: o jogo acaba no fim do resultado. */
+  /** A decisão atingiu o limite de decisões a favor dos Impostores: o jogo acaba no fim do resultado. */
   decisionLoss?: boolean;
   votes: Record<string, string>;
   ejectedId?: string | null;
@@ -156,10 +156,10 @@ export class Game {
   private emergencyReadyAt = 0;
   private lockedUntil = new Map<string, number>();
   private doorReadyAt = new Map<string, number>();
-  /** Pergunta da ronda e opções que os Desalinhados querem que o laboratório escolha. */
+  /** Pergunta da ronda e opções que os Impostores querem que o laboratório escolha. */
   private round: { item: QuestionItem; goal: number[] } | null = null;
   private usedItems = new Set<QuestionItem>();
-  /** consola -> opção que a evidência revela (uma das que os Desalinhados querem); no máximo uma por ronda */
+  /** consola -> opção que a evidência revela (uma das que os Impostores querem); no máximo uma por ronda */
   private evidence = new Map<string, number>();
   private badDecisions = 0;
   /** Progresso mostrado quando a barra só atualiza nas reuniões. */
@@ -425,7 +425,7 @@ export class Game {
       p.inVent = undefined;
       p.killReadyAt = now + 10_000;
       p.emergencyLeft = s.emergencyMeetings;
-      // Os Desalinhados recebem uma lista igual à dos outros, só para fingir.
+      // Os Impostores recebem uma lista igual à dos outros, só para fingir.
       p.tasks = [...common, ...pick('long', s.longTasks), ...pick('short', s.shortTasks)].map((def) => ({
         id: `${p.id}:${def.id}`,
         defId: def.id,
@@ -480,10 +480,10 @@ export class Game {
   // ---------------------------------------------------------------- tema
 
   /**
-   * Sorteia o dilema da ronda (sem repetir até esgotar o tema) e o objetivo dos Desalinhados:
+   * Sorteia o dilema da ronda (sem repetir até esgotar o tema) e o objetivo dos Impostores:
    * 2 das 4 opções, ao acaso.
    * Esconde uma evidência numa consola onde a Equipa tem tarefas por fazer: diz uma das opções que os
-   * Desalinhados querem.
+   * Impostores querem.
    * Quem conclui um passo de tarefa nessa consola encontra a pista (só ele a vê).
    */
   private nextRound(): void {
@@ -508,7 +508,7 @@ export class Game {
     goal.sort((a, b) => a - b);
     this.round = { item, goal };
 
-    // Uma evidência por ronda, com uma opção do objetivo dos Desalinhados.
+    // Uma evidência por ronda, com uma opção do objetivo dos Impostores.
     const stations = this.pendingTaskStations();
     const station = stations[Math.floor(this.rng() * stations.length)];
     if (station) this.evidence.set(station, goal[Math.floor(this.rng() * goal.length)]!);
@@ -552,7 +552,7 @@ export class Game {
     };
   }
 
-  /** Um Desalinhado vivo destrói a evidência escondida numa consola: deixa de poder ser encontrada. */
+  /** Um Impostor vivo destrói a evidência escondida numa consola: deixa de poder ser encontrada. */
   private onEvidence(p: Player, msg: Record<string, unknown>): void {
     if (this.phase !== 'playing' || p.role !== 'impostor' || p.inVent || !p.alive) return;
     const station = STATIONS.find((s) => s.id === msg.stationId);
@@ -624,7 +624,7 @@ export class Game {
   }
 
   private onTaskStep(p: Player, msg: Record<string, unknown>): void {
-    // Os Desalinhados não fazem tarefas; os fantasmas da Equipa continuam a fazê-las.
+    // Os Impostores não fazem tarefas; os fantasmas da Equipa continuam a fazê-las.
     if (this.phase !== 'playing' || p.role !== 'crew') return;
     if (this.tasksHidden(p)) return this.error(p, 'tasksHidden');
     const task = p.tasks.find((t) => t.id === msg.taskId && !t.done);
@@ -657,7 +657,7 @@ export class Game {
   // ---------------------------------------------------------------- sabotagens
 
   private onSabotage(p: Player, msg: Record<string, unknown>, now: number): void {
-    // Como no género, os Desalinhados eliminados continuam a poder sabotar.
+    // Como no género, os Impostores eliminados continuam a poder sabotar.
     if (this.phase !== 'playing' || p.role !== 'impostor') return;
     const kind = msg.kind;
     if (kind === 'doors') {
@@ -748,7 +748,7 @@ export class Game {
       // Fim da discussão: conta-se a decisão do laboratório e passa-se à votação de expulsão.
       this.closeDecision(m);
       if (m.decisionLoss) {
-        // Limite de decisões desalinhadas atingido: não há expulsão, mostra-se o resultado e o jogo acaba.
+        // Limite de decisões a favor dos Impostores atingido: não há expulsão, mostra-se o resultado e o jogo acaba.
         m.stage = 'result';
         m.endsAt = now + RESULT_MS;
       } else {
@@ -778,7 +778,7 @@ export class Game {
     this.dirty = true;
   }
 
-  /** Conta a decisão do laboratório (só escolhas de vivos) e atualiza o contador de decisões desalinhadas. */
+  /** Conta a decisão do laboratório (só escolhas de vivos) e atualiza o contador de decisões a favor dos Impostores. */
   private closeDecision(m: Meeting): void {
     if (!this.round) return;
     const alive = new Set(this.alive().map((p) => p.id));

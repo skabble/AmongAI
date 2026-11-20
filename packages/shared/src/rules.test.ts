@@ -20,7 +20,7 @@ import { FIX_GAMES, TASKS } from './tasks';
 const ids = (n: number) => Array.from({ length: n }, (_, i) => `p${i}`);
 
 describe('assignRoles', () => {
-  it('limita os Desalinhados ao número de jogadores', () => {
+  it('limita os Impostores ao número de jogadores', () => {
     expect(maxImpostors(4)).toBe(1);
     expect(maxImpostors(7)).toBe(2);
     expect(maxImpostors(15)).toBe(3);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { COLORS, SETTINGS_LIMITS, THEMES, maxImpostors, type Settings } from '@desalinhados/shared';
+import { COLORS, SETTINGS_LIMITS, THEMES, maxImpostors, type Settings } from '@amongai/shared';
 import { useT } from '../i18n';
 import { leaveRoom, send, useStore } from '../store';
 import { Bot } from './common';

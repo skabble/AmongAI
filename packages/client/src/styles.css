@@ -885,7 +885,7 @@ button:focus-visible {
   border-color: var(--impostor);
   background: rgba(255, 93, 108, 0.14);
 }
-/* Opção que a evidência encontrada revela como objetivo dos Desalinhados. */
+/* Opção que a evidência encontrada revela como objetivo dos Impostores. */
 .question-options li.excluded {
   border-color: var(--warn);
   background: rgba(255, 179, 71, 0.14);
@@ -911,7 +911,7 @@ button:focus-visible {
   min-width: 0;
 }
 
-/* Contador de decisões desalinhadas */
+/* Contador de decisões a favor dos Impostores */
 .bad-decisions {
   display: flex;
   align-items: center;
@@ -989,7 +989,7 @@ button:focus-visible {
   color: #06202c;
 }
 
-/* Quem escolheu a opção dos Desalinhados: brilho vermelho */
+/* Quem escolheu a opção dos Impostores: brilho vermelho */
 .glow-impostor {
   border-color: var(--impostor) !important;
   animation: glow-impostor 1.6s ease-in-out infinite;

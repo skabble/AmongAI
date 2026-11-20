@@ -42,7 +42,7 @@ export type TaskBarMode = 'always' | 'meetings' | 'never';
 
 export interface Settings {
   theme: string;
-  /** Decisões desalinhadas que dão a vitória aos Desalinhados (0 = sem limite). */
+  /** Decisões a favor dos Impostores que dão a vitória aos Impostores (0 = sem limite). */
   badDecisions: number;
   impostors: number;
   killCooldown: number; // segundos

@@ -9,8 +9,8 @@ import {
   type ChatMessage,
   type Snap,
   type View,
-} from '@desalinhados/shared';
-import { THEME_CONTENT, type QuestionItem } from '@desalinhados/shared/content';
+} from '@amongai/shared';
+import { THEME_CONTENT, type QuestionItem } from '@amongai/shared/content';
 import { BAD_DECISION_KILL_FACTOR, GOOD_DECISION_KILL_FACTOR, Game } from './Game';
 
 interface Harness {
@@ -105,7 +105,7 @@ describe('Game', () => {
     expect(h.game.addPlayer('tarde', 'Tarde')).toBe('started');
   });
 
-  it('não revela papéis à Equipa e mostra os colegas aos Desalinhados', () => {
+  it('não revela papéis à Equipa e mostra os colegas aos Impostores', () => {
     const h = setup(10, { impostors: 2 });
     expect(h.impostors()).toHaveLength(2);
     const crewView = h.views.get(h.crew()[0]!)!;
@@ -128,7 +128,7 @@ describe('Game', () => {
     expect(new Set(lists.map((list) => list.find((d: any) => d.kind === 'common').id)).size).toBe(1);
   });
 
-  it('todos discutem a mesma pergunta; só os Desalinhados veem o objetivo', () => {
+  it('todos discutem a mesma pergunta; só os Impostores veem o objetivo', () => {
     const h = setup(6);
     const imp = h.impostors()[0]!;
     const crew = h.crew();
@@ -173,7 +173,7 @@ describe('Game', () => {
     for (const id of h.ids) expect(h.views.get(id)!.meeting!.picks).toEqual({ [a]: other, [b]: other });
     expect(h.views.get(b)!.meeting!.decision).toBeUndefined();
 
-    // O Desalinhado convence-os: mudam de opção durante a discussão.
+    // O Impostor convence-os: mudam de opção durante a discussão.
     h.act(a, 'decide', { option: goal });
     h.act(b, 'decide', { option: goal });
     h.tick();
@@ -228,7 +228,7 @@ describe('Game', () => {
     expect(h.player(imp).killReadyAt).toBe(h.now + h.game.settings.killCooldown * 1000);
   });
 
-  it('no limite de decisões desalinhadas os Desalinhados ganham, sem votação de expulsão', () => {
+  it('no limite de decisões a favor dos Impostores os Impostores ganham, sem votação de expulsão', () => {
     const h = setup(5, { emergencyCooldown: 0, badDecisions: 1 });
     const imp = h.impostors()[0]!;
     const goal = h.views.get(imp)!.round!.goal![0]!;
@@ -245,7 +245,7 @@ describe('Game', () => {
     expect(v).toMatchObject({ winner: 'impostor', winReason: 'decisions' });
   });
 
-  it('evidência: uma por ronda, escondida numa tarefa; revela a opção dos Desalinhados a quem a encontra', () => {
+  it('evidência: uma por ronda, escondida numa tarefa; revela a opção dos Impostores a quem a encontra', () => {
     const h = setup(6);
     const imp = h.impostors()[0]!;
     const crew = h.crew();
@@ -253,7 +253,7 @@ describe('Game', () => {
     const stations = h.views.get(imp)!.evidence;
     expect(stations).toHaveLength(1);
     const [stationId] = stations as [string];
-    // Só os Desalinhados sabem onde está; todos sabem se ainda existe.
+    // Só os Impostores sabem onde está; todos sabem se ainda existe.
     for (const id of crew) {
       expect(h.views.get(id)!.evidence).toEqual([]);
       expect(h.views.get(id)!.evidenceLeft).toBe(1);
@@ -284,7 +284,7 @@ describe('Game', () => {
     expect(h.views.get(imp)!.round!.hints).toEqual([]);
     expect(h.views.get(imp)!.evidence).toEqual([stationId]);
 
-    // Só os Desalinhados destroem, e só ao pé da consola.
+    // Só os Impostores destroem, e só ao pé da consola.
     const station = STATIONS.find((s) => s.id === stationId)!;
     at(h, crew[0]!, station);
     h.act(crew[0]!, 'evidence', { stationId });
@@ -342,7 +342,7 @@ describe('Game', () => {
     expect(seen).not.toContain(c);
   });
 
-  it('eliminar, reportar, discutir, votar e expulsar o Desalinhado dá a vitória à Equipa', () => {
+  it('eliminar, reportar, discutir, votar e expulsar o Impostor dá a vitória à Equipa', () => {
     const h = setup(6);
     const imp = h.impostors()[0]!;
     const [victim, reporter] = h.crew() as [string, string];
@@ -469,7 +469,7 @@ describe('Game', () => {
     expect(h.views.get(a)!.you.emergencyLeft).toBe(0);
   });
 
-  it('os Desalinhados ganham quando igualam a Equipa', () => {
+  it('os Impostores ganham quando igualam a Equipa', () => {
     const h = setup(4, { theme: 'none', killCooldown: 10 });
     const imp = h.impostors()[0]!;
     h.tick(11_000);
@@ -522,7 +522,7 @@ describe('Game', () => {
     expect(setup(4, { taskBar: 'never' }).views.get('p0')!.taskProgress).toBeNull();
   });
 
-  it('condutas: entrar esconde o Desalinhado, que se move entre condutas ligadas e sai', () => {
+  it('condutas: entrar esconde o Impostor, que se move entre condutas ligadas e sai', () => {
     const h = setup(5, { theme: 'none' });
     const imp = h.impostors()[0]!;
     const crew = h.crew()[0]!;
@@ -550,7 +550,7 @@ describe('Game', () => {
     expect(h.player(imp).inVent).toBeUndefined();
   });
 
-  it('sabotagens: injection esconde tarefas; crítica por resolver dá a vitória aos Desalinhados', () => {
+  it('sabotagens: injection esconde tarefas; crítica por resolver dá a vitória aos Impostores', () => {
     const h = setup(5, { theme: 'none' });
     const imp = h.impostors()[0]!;
     const crew = h.crew()[0]!;

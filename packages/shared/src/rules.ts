@@ -11,7 +11,7 @@ export function shuffle<T>(items: readonly T[], rng: Rng = Math.random): T[] {
   return out;
 }
 
-/** Máximo de Desalinhados que mantém o jogo equilibrado para `playerCount` jogadores. */
+/** Máximo de Impostores que mantém o jogo equilibrado para `playerCount` jogadores. */
 export function maxImpostors(playerCount: number): number {
   if (playerCount >= 10) return 3;
   if (playerCount >= 7) return 2;

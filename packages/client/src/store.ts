@@ -1,12 +1,12 @@
 import { Client, type Room } from '@colyseus/sdk';
 import { useSyncExternalStore } from 'react';
-import type { ChatMessage, ClientMessages, EventCode, GameEvent, Lang, MiniGame, Snap, View } from '@desalinhados/shared';
+import type { ChatMessage, ClientMessages, EventCode, GameEvent, Lang, MiniGame, Snap, View } from '@amongai/shared';
 
 /** O que está ao alcance do jogador neste momento (calculado pela cena do jogo). */
 export interface Nearby {
   taskId?: string;
   panelId?: string;
-  /** Consola com uma evidência escondida (só para Desalinhados, que a podem destruir). */
+  /** Consola com uma evidência escondida (só para Impostores, que a podem destruir). */
   evidenceId?: string;
   button?: boolean;
   bodyId?: string;
@@ -43,7 +43,7 @@ export interface State {
   offset: number;
 }
 
-export const LANG_KEY = 'desalinhados:lang';
+export const LANG_KEY = 'amongai:lang';
 
 function initialLang(): Lang {
   try {
@@ -85,7 +85,7 @@ export function serverNow(): number {
 
 // ---------------------------------------------------------------- rede
 
-const TOKEN_KEY = 'desalinhados:reconnect';
+const TOKEN_KEY = 'amongai:reconnect';
 const endpoint = import.meta.env.DEV ? `http://${location.hostname}:2567` : location.origin;
 const client = new Client(endpoint);
 let room: Room | undefined;

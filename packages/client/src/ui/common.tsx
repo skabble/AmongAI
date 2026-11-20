@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { PublicPlayer } from '@desalinhados/shared';
+import type { PublicPlayer } from '@amongai/shared';
 import { useT } from '../i18n';
 import { serverNow } from '../store';
 

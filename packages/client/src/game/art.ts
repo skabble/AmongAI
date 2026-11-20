@@ -1,6 +1,6 @@
 // Arte 2.5D desenhada por código: vista de cima com perspetiva oblíqua (as paredes viradas a sul mostram a face).
 import Phaser from 'phaser';
-import { DOORS, ROOMS, WORLD, isWalkablePoint, type DecorKind } from '@desalinhados/shared';
+import { DOORS, ROOMS, WORLD, isWalkablePoint, type DecorKind } from '@amongai/shared';
 import { t } from '../i18n';
 
 /** Altura máxima da face visível das paredes, em px. */

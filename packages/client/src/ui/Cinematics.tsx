@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { MeetingView, PublicPlayer } from '@desalinhados/shared';
+import type { MeetingView, PublicPlayer } from '@amongai/shared';
 import { useT } from '../i18n';
 import { Bot } from './common';
 

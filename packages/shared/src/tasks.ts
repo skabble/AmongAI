@@ -78,7 +78,7 @@ export function taskDef(id: string): TaskDef | undefined {
   return TASKS.find((t) => t.id === id);
 }
 
-/** Mini-jogos com que os Desalinhados destroem a evidência, atribuídos em ciclo às consolas. */
+/** Mini-jogos com que os Impostores destroem a evidência, atribuídos em ciclo às consolas. */
 export const HIDE_GAMES: MiniGame[] = ['clean', 'keypad', 'sequence', 'calibrate'];
 
 /** Mini-jogo que repara cada sabotagem. */

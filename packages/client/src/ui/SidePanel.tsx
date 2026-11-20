@@ -4,7 +4,7 @@ import { PlayerName } from './common';
 
 /**
  * Coluna fixa à direita durante o jogo e as reuniões: o papel do jogador sempre visível
- * (quadrado verde para a Equipa, vermelho para os Desalinhados) e, para o anfitrião,
+ * (quadrado verde para a Equipa, vermelho para os Impostores) e, para o anfitrião,
  * o botão que termina o jogo e leva todos ao lobby.
  */
 export function SidePanel() {

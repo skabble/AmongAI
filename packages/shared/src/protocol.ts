@@ -5,7 +5,7 @@ export type Phase = 'lobby' | 'playing' | 'meeting' | 'ended';
 /**
  * Passo 1 — speaking: discussão livre por voz; cada jogador vivo escolhe uma opção da pergunta da ronda e pode
  * mudar quantas vezes quiser (as escolhas são públicas, ao vivo). Só o anfitrião abre a votação.
- * Passo 2 — voting: a decisão do laboratório é revelada (com o objetivo dos Desalinhados) e vota-se a expulsão;
+ * Passo 2 — voting: a decisão do laboratório é revelada (com o objetivo dos Impostores) e vota-se a expulsão;
  * result: resultado da expulsão.
  */
 export type MeetingStage = 'speaking' | 'voting' | 'result';
@@ -32,7 +32,7 @@ export interface PublicPlayer {
   connected: boolean;
   /** Morte conhecida publicamente (revelada em reunião). */
   dead: boolean;
-  /** Só preenchido para colegas Desalinhados ou no fim do jogo. */
+  /** Só preenchido para colegas Impostores ou no fim do jogo. */
   role?: Role;
 }
 
@@ -55,9 +55,9 @@ export interface MeetingView {
   participants: string[];
   /** Escolhas feitas na ronda de opiniões: jogador -> índice da opção (públicas, ao vivo). */
   picks: Record<string, number>;
-  /** A partir da votação: a opção vencedora e o objetivo dos Desalinhados. */
+  /** A partir da votação: a opção vencedora e o objetivo dos Impostores. */
   decision?: DecisionView;
-  /** O laboratório chegou ao limite de decisões desalinhadas: o jogo acaba no fim do resultado. */
+  /** O laboratório chegou ao limite de decisões a favor dos Impostores: o jogo acaba no fim do resultado. */
   decisionLoss?: boolean;
   voted: string[];
   yourVote?: string;
@@ -72,7 +72,7 @@ export interface MeetingView {
 export interface DecisionView {
   /** Opção vencedora, ou null em caso de empate ou sem escolhas. */
   chosen: number | null;
-  /** As opções que os Desalinhados queriam. */
+  /** As opções que os Impostores queriam. */
   goal: number[];
 }
 
@@ -80,9 +80,9 @@ export interface DecisionView {
 export interface RoundView {
   question: string;
   options: string[];
-  /** Só para Desalinhados: as opções que querem que o laboratório escolha. */
+  /** Só para Impostores: as opções que querem que o laboratório escolha. */
   goal?: number[];
-  /** Só para a Equipa: a opção dos Desalinhados, se este jogador encontrou a evidência da ronda (privada). */
+  /** Só para a Equipa: a opção dos Impostores, se este jogador encontrou a evidência da ronda (privada). */
   hints: number[];
 }
 
@@ -113,13 +113,13 @@ export interface View {
   };
   /** Pergunta da ronda (null sem tema). */
   round: RoundView | null;
-  /** Decisões desalinhadas até agora e limite (0 = sem limite); null sem tema. */
+  /** Decisões a favor dos Impostores até agora e limite (0 = sem limite); null sem tema. */
   badDecisions: { count: number; limit: number } | null;
   /** null quando a barra de tarefas está escondida. */
   taskProgress: number | null;
   emergencyReadyAt: number;
   sabotage: SabotageView | null;
-  /** Só para Desalinhados: consola onde está a evidência da ronda, se ainda não foi destruída. */
+  /** Só para Impostores: consola onde está a evidência da ronda, se ainda não foi destruída. */
   evidence: string[];
   /** 1 se a evidência da ronda ainda está escondida nas tarefas, 0 se foi destruída (todos veem). */
   evidenceLeft: number;
@@ -161,7 +161,7 @@ export type EventCode =
   | 'critical'
   | 'tasksHidden'
   | 'minPlayers'
-  /** Evidência encontrada numa tarefa: params.option (letra e texto) é a opção que os Desalinhados querem. */
+  /** Evidência encontrada numa tarefa: params.option (letra e texto) é a opção que os Impostores querem. */
   | 'clueGoal';
 
 export interface GameEvent {
@@ -186,7 +186,7 @@ export interface ClientMessages {
   emergency: Record<string, never>;
   /** Passo atual da tarefa concluído (o mini-jogo corre no cliente, como é habitual no género). */
   taskStep: { taskId: string };
-  /** Só Desalinhados vivos: destroem a evidência escondida nesta consola. A Equipa encontra-a ao fazer tarefas. */
+  /** Só Impostores vivos: destroem a evidência escondida nesta consola. A Equipa encontra-a ao fazer tarefas. */
   evidence: { stationId: string };
   sabotage: { kind: SabotageKind; roomId?: string };
   fix: { panelId: string };
